@@ -1,3 +1,4 @@
+# main.py
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -10,8 +11,8 @@ from monitor import MonitorManager
 from userauth import UserAuth
 from menu import MenuBuilder
 
-TOKEN = os.getenv("TOKEN")  # Telegram Bot API token
-CHAT_ID = os.getenv("CHAT_ID")  # Admin chat ID for key generation
+TOKEN = os.getenv("TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 bot = telebot.TeleBot(TOKEN)
 
 auth = UserAuth()
@@ -62,3 +63,4 @@ def generate_key(m):
 keep_alive()
 threading.Thread(target=monitor.loop).start()
 bot.polling(none_stop=True)
+
